@@ -18,7 +18,14 @@ public class ControlStmt {
         else {
             조건식 또는 논리식이 거짓인경우 실행되는 멸령문들...
         }
-
+        3 형식)
+        if (조건식 또는 논리식 1)
+        {
+            위 조건식이 참인경우 실행되는 명령문들...
+        } else if (조건식 또는 논리식 2)
+        {
+        } else if (조건식 또는 논리식 3)
+        ...
 
          */
 
@@ -38,13 +45,6 @@ public class ControlStmt {
             System.out.println("당신은 성인이 아닙니다.");
         }
 
-
-
-
         sc.close();
-
-
-
-
     }
 }
