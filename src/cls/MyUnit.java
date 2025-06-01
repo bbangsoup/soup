@@ -44,8 +44,17 @@ public class MyUnit {
     }
 
     public void attack(MyUnit target){
-        target.damaged(this.power);      // target의 hp가 깎이는 형태? (m1의 power 가지고)
+        target.damaged(this.power);     // target의 hp가 깎이는 형태? (m1의 power 가지고)
     }
+
+    //***************************************************************************************
+    // m1.attack(t1); // attack 메서드를 호출하는 주체는 m1 객체임.
+    // 따라서 attack 메서드 안의 this.power 는 곧 m1 의 power 를 의미한다.
+    // ***이해 중요***  ==> t1.damaged(m1.power); 이렇게 생각 할 수 있다.
+    // 여기서 damaged를 호출하는 주체는 t1 이므로 damaged 함수안에서의 this.hp 는 t1의 hp를 의미한다.
+    // 메서드 안에서의 this는 메서드를 호출한 객체를 의미한다.
+    //***************************************************************************************
+
 
     // hp와 power를 출력하는 메소드 info 를 만드세요
     public void info(){
