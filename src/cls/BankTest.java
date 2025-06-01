@@ -3,9 +3,15 @@ package cls;
 public class BankTest {
     public static void main(String[] args) {
 
-        BankAccount bankAccount = new BankAccount();
+        BankAccount bank = new BankAccount();
 
-        bankAccount.deposit(1000);
+        bank.deposit(1000);
+        bank.withdraw(800);
+        bank.withdraw(300);
+
+
+
+
 
     }
 }

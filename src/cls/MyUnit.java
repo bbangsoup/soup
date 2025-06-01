@@ -1,0 +1,63 @@
+package cls;
+
+// Marine : steampack   ((추가기능))
+// Tank : 공격력 + 20, 체력 + 100  ((값이 다름))
+
+// 필드(Field) : 클래스의 멤버 변수, 데이터 요소를 뜻한다.
+// 메소드(method) : 멤버 함수
+// 매개변수(Parameter, Argument, 인수, 인자): 메소드에서 외부로부터 주어지는 입력값으로 초기화되는 변수
+// 매개변수가 정의되는 곳은 : 매소드([매개변수들...])
+
+// 필드 : 정수형으로 hp, power
+
+public class MyUnit {
+
+    private int hp;
+    private int power;
+    private String name;
+
+    // hp는 100, power는 100으로 설정하는 기본 생성자를 만드세요.
+    public MyUnit(){
+        hp = 100;
+        power = 100;
+        name = "이름없음";
+    }
+
+    // 외부로부터 hp와 power를 입력받아서 멤버 hp와 power를 설정하는 생성자
+    public MyUnit(String name, int hp, int power){
+        this.name = name;
+        this.hp = hp;
+        this.power = power;
+
+    }
+
+    // 외부에서 호출가능하도록
+    // 반환값이 없는 메소드 damage 를 만드세요
+    // 매개변수로 power 가 주어지고,
+    // 멤버 변수 hp 를 매개변수 power 만큼 차감합니다.
+    // hp 에서 power 를 차감한 값이 음수이면 0으로 처리합니다.
+    public void damaged(int power){
+        this.hp -= power;
+
+        if (this.hp < 0)
+            this.hp = 0;
+    }
+
+    public void attack(MyUnit target){
+        target.damaged(this.power);      // target의 hp가 깎이는 형태? (m1의 power 가지고)
+    }
+
+    // hp와 power를 출력하는 메소드 info 를 만드세요
+    public void info(){
+        System.out.printf("[%s] hp : %d, power : %d\n", this.name, this.hp, this.power);
+    }
+
+    public void setPower(int power){
+        this.power = power;
+    }
+    public int getPower(){
+        return power;
+    }
+
+
+}

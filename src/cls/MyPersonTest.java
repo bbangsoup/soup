@@ -23,8 +23,16 @@ public class MyPersonTest {
         System.out.println(k1_age);
 
 
-        Person k2 = new Person("홍길동",18);
-        k2.introduce();
+        Student k2 = new Student("홍길동",18, "남자","하버드");
+        k2.introduce(); // Person 클래스에 구현되어 있는 introduce 기능 + 추가 기능
+
+        String str = new String("대한민국");
+        System.out.println( str );
+
+        System.out.println( k1 );   // 왜 위의 str 로 하는것과 다른가?
+        System.out.println( k2 );   // -> Person.toString()메소드를 재정의하여 인스턴스를 문자열로 반환한다.
+
+
 
     }
 }

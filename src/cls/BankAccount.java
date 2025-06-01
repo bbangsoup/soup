@@ -33,5 +33,22 @@ public class BankAccount {
         System.out.printf("Deposit : %d원\n", money);
         view();
     }
+    // withdraw : 출금 기능을 구현하세요..
+    // 매개변수 : 출금할 금액
+    // 반환값은 출금하고 남은 값
+    // 출금할 금액이 예금되어 있는 금액보다 크면 출금을 할 수 없음.
+
+    public int withdraw(int money){
+        if (this.money < money) {
+            System.out.printf("%d원을 출금할 수 없습니다.\n", money);
+            return this.money;
+        }
+
+        this.money -= money;
+        System.out.printf("withdraw : %d원\n", money);
+        view();
+
+        return this.money;
+    }
 
 }

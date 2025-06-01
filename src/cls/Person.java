@@ -6,7 +6,7 @@ package cls;
 // 예를들어...
 // 로봇 청소기 : 움직이기, 바퀴, 흡입기, 걸레, 물통, 닦기 ==> 멤버
 // 멤버 변수 : 필드, Attribute(속성)
-// 멤버 함수 : methode(메소드)
+// 멤버 함수 : method(메소드)
 
 
 // 접근 제한자 : 멤버를 선언할때 반드시 제일 앞에 붙여주어야 한다!
@@ -22,9 +22,9 @@ public class Person {
     // 생성자는 클래스 이름과 동일하게 만들어야 한다.
 
     // 기본 생성자의 모양
-   // public Person(){
+    // public Person(){
 
-   // }
+    // }
 
     public Person(){
         name = "이름없음";
@@ -89,5 +89,13 @@ public class Person {
     // 내부에서 밖으로
     public String getName(){
         return name;
+    }
+
+
+    @Override
+    public String toString() {
+    //    String str = String.format("이름 : %s, 나이 %d, 성멸 : %s", name,age,gender);
+    //    return str;
+        return String.format("이름 : %s, 나이 %d, 성멸 : %s", name,age,gender);
     }
 }
