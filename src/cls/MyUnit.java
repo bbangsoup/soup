@@ -73,5 +73,9 @@ public class MyUnit {
         return power;
     }
 
+    // 매소드 재정의
+    public String toString() {
+        return String.format("[%s], hp:%d, power:%d", name,hp,power);
+    }
 
 }
