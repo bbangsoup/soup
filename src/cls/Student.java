@@ -28,7 +28,7 @@ public class Student extends Person{
         if ( !(obj instanceof Student) )
             return false;
 
-        Student target = (Student) obj;
+        Student target = (Student) obj;     // 형변환 Object -> Student
 
         return getName().equals(target.getName()) &&
                 getAge() == target.getAge() &&
@@ -39,3 +39,5 @@ public class Student extends Person{
 
     }
 }
+
+
