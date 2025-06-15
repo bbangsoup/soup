@@ -9,7 +9,7 @@ public class PeopleTester {
 
     public static void main(String[] args) {
 
-
+        // Animal ani = new Animal(); //추상 클래스를 이용하여 인스턴스를 직접 생성할 수 없다.
 
         // People p1 = new People();   // 바로 err
 

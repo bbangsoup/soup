@@ -7,7 +7,7 @@ public class Tiger implements Animal, Creature{
     // from Animal
     @Override
     public void cry() {
-
+        System.out.println("어흥");
     }
 
     // from Animal
@@ -18,7 +18,7 @@ public class Tiger implements Animal, Creature{
 
     // from Creature
     @Override
-    public void eat() {
+    public void eat(String food) {
 
     }
 }
