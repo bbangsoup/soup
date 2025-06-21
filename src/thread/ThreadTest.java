@@ -34,9 +34,50 @@ public class ThreadTest {
         MyThread th1 = new MyThread("서브 스레드1");
         MyThread th2 = new MyThread("서브 스레드2");
 
+
+        // Runnable interface를 구현한 클래스를 인스턴스로 생성함.
+
+        //  MyRunThread rt = new MyRunThread("서브 스레드3");
+        //  Thread th3 = new Thread(rt);
+        // -->
+        Thread th3 = new Thread( new MyRunThread("서브 스레드3") );
+
+                                // inner class
+        Thread th4 = new Thread(new Runnable() {
+            private final String name = "서브 스레드4";
+            @Override
+            public void run() {
+                for (int i=0; i<20; i++){
+                    System.out.printf("[%s] : %d\n", name, i);
+
+                    try {
+                        Thread.sleep(1); // 1초
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+
+            }
+        });
+
+        Thread th5 = new Thread( () -> {
+            for (int i=0; i<20; i++){
+            System.out.printf("[%s] : %d\n", "서브 스레드5", i);
+
+            try {
+                Thread.sleep(100); // 1초
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+         }
+        });
+
         // run() 메소드를 호출하지 않는다~
         th1.start();    // thread를 시작시키는 메소드 ==> run() 메소드가 자동으로 실행됨
         th2.start();
+        th3.start();
+        th4.start();
+        th5.start();
 
         for (int i=0; i<20; i++){
             System.out.printf("[메인 스레드] : %d\n", i);
@@ -45,6 +86,17 @@ public class ThreadTest {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+        }
+
+
+        try {
+            th1.join();
+            th2.join();
+            th3.join();
+            th4.join();
+            th5.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
 
 
