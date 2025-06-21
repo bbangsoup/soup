@@ -1,6 +1,7 @@
 package Interfaces;
 
-public class Outer {
+public class
+Outer {
     public String name;
     public Outer(){
         name = "외부 클래스";
