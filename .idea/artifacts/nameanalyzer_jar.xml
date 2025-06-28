@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="nameanalyzer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/nameanalyzer_jar</output-path>
+    <root id="archive" name="JavaLesson.jar">
+      <element id="module-output" name="JavaLesson" />
+    </root>
+  </artifact>
+</component>

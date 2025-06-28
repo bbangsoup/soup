@@ -39,7 +39,7 @@ public class ThreadTest {
 
         //  MyRunThread rt = new MyRunThread("서브 스레드3");
         //  Thread th3 = new Thread(rt);
-        // -->
+        // --> 위 두 줄과 아래 한줄은 같다.
         Thread th3 = new Thread( new MyRunThread("서브 스레드3") );
 
                                 // inner class
