@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
-import java.sql.SQLOutput;
+
 
 public class FirstSwingApp {
     public static final int TEXT_HEIGHT = 30;
@@ -12,9 +12,14 @@ public class FirstSwingApp {
 
     public static void main(String[] args) throws IOException {
 
-        GameWin mainWin = new GameWin("",this);
+        // GameWin mainWin = new GameWin("",this);
 
-        JFrame frame = new JFrame( "자바 스윙 앱");  // 메인 윈도우 
+        JFrame frame = new JFrame( "자바 스윙 앱");  // 메인 윈도우
+        frame.setSize(800,600); // 메인 윈도우의 크기
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // x 버튼을 클릭 했을때 엑션 ==> App 종료
+        frame.setLayout( null );    // 레이아웃 객체를 사용하지 않음.
+        frame.setResizable( false );    // 윈도우 사이징을 막음(윈도우 크기 고정시킴)
+        frame.getContentPane().setBackground(new Color(0, 0, 0));
 
 //        LayoutManager layoutManager = new FlowLayout(FlowLayout.CENTER);
 

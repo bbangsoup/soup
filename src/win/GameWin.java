@@ -15,10 +15,6 @@ public class GameWin extends JFrame {
 
         this.app = app;
 
-        setSize(800,600); // 메인 윈도우의 크기
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // x 버튼을 클릭 했을때 엑션 ==> App 종료
-        setLayout( null );    // 레이아웃 객체를 사용하지 않음.
-        setResizable( false );    // 윈도우 사이징을 막음(윈도우 크기 고정시킴)
-        getContentPane().setBackground(new Color(0, 0, 0));
+
     }
 }
