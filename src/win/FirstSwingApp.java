@@ -2,28 +2,39 @@ package win;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
+import java.io.IOException;
+import java.sql.SQLOutput;
 
 public class FirstSwingApp {
     public static final int TEXT_HEIGHT = 30;
+    public static int score = 0;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
+        GameWin mainWin = new GameWin("",this);
+
         JFrame frame = new JFrame( "자바 스윙 앱");  // 메인 윈도우 
-        frame.setSize(800,600); // 메인 윈도우의 크기
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // x 버튼을 클릭 했을때 엑션 ==> App 종료
-        frame.setLayout( null );    // 레이아웃 객체를 사용하지 않음.
+
 //        LayoutManager layoutManager = new FlowLayout(FlowLayout.CENTER);
 
-        FallingLabel label = new FallingLabel("텍스트", 10, frame);    // 위젯(Widget), 컴포넌트(Component)
-        Thread th = new Thread( label );
-        th.start();
-//        label.setBounds(10,10,600,50);
+        //
+        WordManager wordManager = new WordManager( frame );
+        wordManager.initWords("words.json");
 
         JTextField text = new JTextField();
-//        text.setBounds(10,100,600,TEXT_HEIGHT);
+
+        JLabel score = new JLabel();
+        // score 배경색과 폰트 지정하기
+        Font font = new Font("맑은 고딕", Font.BOLD,25);
+        score.setFont(font);
+        score.setForeground(new Color(255,0,0));
+
+        score.setBackground(new Color(255, 255,0));
+        score.setOpaque( true );    // 라벨의 배경을 불투명하게 설정하기
+
+
+
 
         // 메인 윈도우가 생성된 이후에 실행하도록 설정
         // 메인 윈도우가 나타나기 직전에 실행되도록 처리함
@@ -37,6 +48,8 @@ public class FirstSwingApp {
                 // text 위젯을 메인 윈도우 하단에 고정시키기
                 int y=frame.getContentPane().getHeight() - TEXT_HEIGHT;
                 text.setBounds(0, y, frame.getWidth(), TEXT_HEIGHT);
+                score.setBounds(0, 0, frame.getWidth(), TEXT_HEIGHT);
+//                score.setEnabled( false ); // 편집을 막음
             }
 
             @Override
@@ -55,10 +68,18 @@ public class FirstSwingApp {
                 // text 에서 엔터키가 눌렀으면
                 if( e.getKeyCode() == KeyEvent.VK_ENTER ) {
                     // 입력된 글자와 같은 라벨을 찾아서 지움
-                    //
 
                     String inputText = text.getText();
                     System.out.println( inputText );
+                    if (wordManager.remove( inputText ) ) {
+                        // score의 텍스트를 10점씩 증가시키기
+                        FirstSwingApp.score += 10;
+                        // 점수 : 100 점
+                        score.setText( String.format("점수 : %d 점", FirstSwingApp.score ));
+                        System.out.println(FirstSwingApp.score);
+
+                    }
+
 
                     text.setText("");   // text clear
                 }
@@ -69,8 +90,18 @@ public class FirstSwingApp {
             public void keyReleased(KeyEvent e) {}
         });
 
-        frame.add(label);
-        frame.add(text);
+//        frame.add(label);
+        frame.add(text);    // 텍스트 입력창을 메인윈도우에 추가 시킴
+        frame.add(score);   // score 창을 추가 시킴
+
+        // Timer Thread를 생성한다.
+        Timer timer = new Timer(1000, (event)-> {
+            // Timer Thread에서 하는일 정의
+            wordManager.add();  // FallingLable 인스턴스를 한개씩 추가시킴
+        });
+
+        // Timer Thread 시작시키기
+        timer.start();
 
         // 윈도우를 보이게 함
         frame.setVisible( true );
