@@ -3,6 +3,10 @@ package nameanalyzer;
 // 글자 하나 : 자모 분해 : 획수 계산
 public class NameAnalyzer {
 
+    private char a;
+    private char b;
+    private char c;
+
     public static int getTotalStroke(char syllable) {
         if (!isHangulSyllable(syllable)) return 0;
 
@@ -15,7 +19,13 @@ public class NameAnalyzer {
         total += Hangle.getStroke(jung);
         total += Hangle.getStroke(jong);
 
+
+
+
         return total;
+
+
+
     }
 
     private static boolean isHangulSyllable(char ch) {

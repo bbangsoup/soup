@@ -1,3 +1,4 @@
+
 package win;
 
 import javax.swing.*;
@@ -8,7 +9,7 @@ public class FallingLabel extends JLabel implements Runnable {
     private int x;          // 라벨의 x좌표
     private int y;          // 라벨의 현재 y좌표
     private int speed;      // 떨어지는 속도
-//    private JFrame parent;  // 부모 윈도우(라벨이 놓여진 윈도우)
+    //    private JFrame parent;  // 부모 윈도우(라벨이 놓여진 윈도우)
     private WordManager mgr;
 
     public FallingLabel (String text, int speed, WordManager mgr){

@@ -61,7 +61,7 @@ public class WordManager {
         // 리스트에서 매개변수로 주어지는 text와 비교하여 FallingLabel 인스턴스를 찾아서 삭제함
         for(FallingLabel label : labelArray) {
             if ( label.getText().equals( text ) ) {
-                System.out.println( text + "가 삭제됨");
+                System.out.println( text + " 가 삭제됨");
                 labelArray.remove(( label ));   // 리스트에서 삭제
                 parent.remove( label );         // 윈도우에서 삭제
                 parent.repaint();               // 메인윈도우를 다시 그림(윈도우 갱신)

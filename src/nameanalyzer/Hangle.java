@@ -56,12 +56,25 @@ public class Hangle {
         // 종성 (겹받침 포함 시 계산 시점에서 분해 처리할 수도 있음)
         strokeMap.put(' ', 0); // 종성이 없을 때
         strokeMap.put('ㄱ', 1);
+        strokeMap.put('ㄲ', 2);
+        strokeMap.put('ㄳ', 3);
         strokeMap.put('ㄴ', 1);
+        strokeMap.put('ㄵ', 4);
+        strokeMap.put('ㄶ', 5);
         strokeMap.put('ㄷ', 2);
         strokeMap.put('ㄹ', 3);
+        strokeMap.put('ㄺ', 4);
+        strokeMap.put('ㄻ', 6);
+        strokeMap.put('ㄼ', 7);
+        strokeMap.put('ㄽ', 5);
+        strokeMap.put('ㄾ', 6);
+        strokeMap.put('ㄿ', 7);
+        strokeMap.put('ㅀ', 7);
         strokeMap.put('ㅁ', 3);
         strokeMap.put('ㅂ', 4);
+        strokeMap.put('ㅄ', 6);
         strokeMap.put('ㅅ', 2);
+        strokeMap.put('ㅆ', 4);
         strokeMap.put('ㅇ', 2);
         strokeMap.put('ㅈ', 3);
         strokeMap.put('ㅊ', 4);
